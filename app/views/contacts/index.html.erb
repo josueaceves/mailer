@@ -39,4 +39,8 @@
 </div>
 
 
-<%= link_to 'New Contact', new_contact_path %>
+<%= link_to 'Add Contacts', new_contact_path %>
+<%= form_tag import_contacts_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>

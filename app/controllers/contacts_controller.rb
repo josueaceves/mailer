@@ -1,6 +1,10 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
 
+  def import
+    Contact.import(params[:file])
+    redirect_to root_url, notice: "Contacts imported."
+  end
   # GET /contacts
   # GET /contacts.json
   def index
