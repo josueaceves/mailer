@@ -25,7 +25,7 @@
       <% if user_signed_in? %>
         <ul class="nav navbar-nav">
           <li class="active">
-            <%= link_to "Contacts" , contacts_path%>
+            <%= link_to "Campaigns" , user_campaigns_path(current_user)%>
           </li>
           <li>
             <%= link_to "Activity", "/"%>
