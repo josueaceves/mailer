@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  resources :users do
+    resources :campaigns do
+      resources :contacts do
+        collection { post :import }
+      end
+    end
+  end
   devise_for :users
   root "home#index"
-  resources :contacts do
-    collection { post :import }
-  end
-  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
