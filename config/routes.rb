@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  
   devise_for :users
   resources :users do
     resources :campaigns do
+      resources :campaign_followups do
+        resources :email_followups
+      end
       resources :contacts do
         collection { post :import }
       end

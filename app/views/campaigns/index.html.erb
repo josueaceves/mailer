@@ -11,21 +11,19 @@
       <thead>
         <tr>
           <th>Campaign</th>
-          <th>Show Activity</th>
-          <th>Contacts</th>
-          <th>Edit</th>
-          <th>Delete</th>
+          <th>Past Campaign Followups</th>
+          <th>Campaign Contacts</th>
+          <th>Date Created</th>
         </tr>
       </thead>
 
       <tbody>
         <% @campaigns.each do |campaign| %>
           <tr>
-            <td><%= campaign.name %></td>
-            <td><%= link_to 'Show', user_campaign_path(current_user, campaign) %></td>
-            <td><%= link_to 'Contacts', user_campaign_contacts_path(current_user, campaign) %></td>
-            <td><%= link_to 'Edit', edit_user_campaign_path(current_user, campaign) %></td>
-            <td><%= link_to 'Destroy', user_campaign_path(current_user, campaign), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to campaign.name, user_campaign_path(current_user, campaign) %></td>
+            <td><%= link_to 'review', user_campaign_campaign_followups_path(current_user, campaign) %></td>
+            <td><%= campaign.contacts.count %></td>
+            <td><%= campaign.created_at.strftime("%d/%m/%y") %></td>
           </tr>
         <% end %>
       </tbody>
