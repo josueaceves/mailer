@@ -1,0 +1,2 @@
+class EmailFollowupsController < ApplicationController
+end

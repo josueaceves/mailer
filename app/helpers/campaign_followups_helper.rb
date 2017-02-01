@@ -1,0 +1,2 @@
+module CampaignFollowupsHelper
+end
