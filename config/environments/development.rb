@@ -44,8 +44,8 @@ Rails.application.configure do
     domain: "aceves-seo.com",
     authentications: "plain",
     enable_starttls_true: true,
-    username: "josue",
-    passwords: "password"
+    username: ENV["GMAIL_ACCOUNT"],
+    passwords: ENV["GMAIL_PASSWORD"]
   }
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }

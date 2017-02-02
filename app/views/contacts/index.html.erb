@@ -8,10 +8,6 @@
       <thead>
         <tr>
           <th>Full Name</th>
-          <!-- <th>Phone number</th> -->
-          <!-- <th>Industry</th> -->
-          <!-- <th>Description</th> -->
-          <!-- <th>Notes</th> -->
           <th>Email</th>
           <th>Company</th>
           <th>Job title</th>
@@ -21,10 +17,6 @@
         <% @contacts.each do |contact| %>
           <tr>
             <td><%= "#{contact.first_name} #{contact.last_name}" %></td>
-            <!-- <td><%= contact.phone_number %></td> -->
-            <!-- <td><%= contact.industry %></td> -->
-            <!-- <td><%= contact.description %></td> -->
-            <!-- <td><%= contact.notes %></td> -->
             <td><%= contact.email %></td>
             <td><%= contact.company %></td>
             <td><%= contact.job_title %></td>
@@ -32,6 +24,7 @@
         <% end %>
       </tbody>
     </table>
+  </div>
 </div>
 
 
