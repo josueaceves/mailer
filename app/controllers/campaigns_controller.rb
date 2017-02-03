@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-  before_filter :authenticate_user! 
+  before_filter :authenticate_user!
   before_action :set_campaign, only: [:show, :edit, :update, :destroy]
   # GET /campaigns
   # GET /campaigns.json
@@ -10,6 +10,8 @@ class CampaignsController < ApplicationController
   # GET /campaigns/1
   # GET /campaigns/1.json
   def show
+    @contacts = @campaign.contacts.order(first_name: :asc)
+    @campaign_followups = @campaign.campaign_followups
   end
 
   # GET /campaigns/new
