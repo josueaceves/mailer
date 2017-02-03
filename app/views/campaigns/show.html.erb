@@ -80,7 +80,14 @@
            </div>
          </div>
          <div class="tab-pane" id="d">
-           <%= link_to 'Edit Campaign', edit_user_campaign_path(current_user, @campaign) %>
+             Update Client List
+           <%= form_tag import_user_campaign_contacts_path(current_user,@campaign.id), multipart: true do %>
+             <%= file_field_tag :file , class:"btn btn-primary"%><br>
+             <%= submit_tag "Import New Clients", class:"btn btn-success" %>
+           <% end %>
+           <div class="col-9">
+             <%= link_to 'Edit Campaign', edit_user_campaign_path(current_user, @campaign) %>
+           </div>
          </div>
         </div>
       </div>
