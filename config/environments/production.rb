@@ -89,8 +89,7 @@ Rails.application.configure do
     enable_starttls_auto: true,
     username: ENV["GMAIL_ACCOUNT"],
     passwords: ENV["GMAIL_PASSWORD"],
-    enable_starttls_auto: true,
-    openssl_verify_mode: 'none'
+    enable_starttls_auto: true
   }
 
 end
