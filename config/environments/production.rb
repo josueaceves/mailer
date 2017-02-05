@@ -76,6 +76,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.assets.raise_runtime_errors = true
 
   config.action_mailer.default_url_options = { host: 'https://still-plateau-93422.herokuapp.com' }
 
@@ -89,7 +90,8 @@ Rails.application.configure do
     enable_starttls_auto: true,
     username: ENV["GMAIL_ACCOUNT"],
     passwords: ENV["GMAIL_PASSWORD"],
-    enable_starttls_auto: true
+    enable_starttls_auto: true,
+    openssl_verify_mode: 'none'
   }
 
 end
