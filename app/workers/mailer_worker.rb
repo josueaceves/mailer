@@ -1,5 +1,8 @@
 class MailerWorker
   include Sidekiq::Worker
+  sidekiq_options :retry => 5, :dead => false, queue: :post_deploy
+  # kill Worker
+  # Sidekiq::Queue.new("post_deploy").clear
 
   def perform(campaign_id)
     campaign = Campaign.find(campaign_id)
