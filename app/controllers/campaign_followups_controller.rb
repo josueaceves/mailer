@@ -9,9 +9,7 @@ class CampaignFollowupsController < ApplicationController
   end
 
   def create
-    puts "made it here"
     MailerWorker.perform_async(params[:campaign_id])
-
     redirect_to '/'
   end
 end

@@ -2,11 +2,11 @@ class MailerWorker
   include Sidekiq::Worker
 
   def perform(campaign_id)
-    # Do something
-    followup = CampaignFollowup.create(campaign_id: campaign_id)
-    1000.times do
-      contact = Contact.last
-      ContactMailer.first_touch(contact).deliver_now
+    campaign = Campaign.find(campaign_id)
+    campaign_followup = CampaignFollowup.create(campaign_id: campaign_id)
+    campaign.contacts.each do |c|
+      campaign_followup.email_followups.create(contact_id: c.id)
+      ContactMailer.first_touch(c).deliver_now
     end
   end
 end
