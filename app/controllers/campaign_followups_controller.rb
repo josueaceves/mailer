@@ -10,10 +10,8 @@ class CampaignFollowupsController < ApplicationController
 
   def create
     puts "made it here"
-    contact = Contact.create(email: "josueaceves.ja@gmail.com", first_name: "josh")
-    100.times do
-      ContactMailer.first_touch(contact).deliver_now
-    end
+    MailerWorker.perform_async(params[:campaign_id])
+
     redirect_to '/'
   end
 end
