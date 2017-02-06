@@ -91,5 +91,6 @@ Rails.application.configure do
     password: ENV["GMAIL_PASSWORD"]
   }
 
-  config.action_mailer.default_url_options = { host: 'https://still-plateau-93422.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # config.action_mailer.default_url_options = { host: 'https://still-plateau-93422.herokuapp.com' }
 end
