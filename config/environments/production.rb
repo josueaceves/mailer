@@ -78,18 +78,18 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.assets.raise_runtime_errors = true
 
-  config.action_mailer.default_url_options = { host: 'https://still-plateau-93422.herokuapp.com' }
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
+  # config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    domain: "still-plateau-93422.herokuapp.com",
+    domain: "example.com",
     authentication: "plain",
-    username: ENV["GMAIL_ACCOUNT"],
-    passwords: ENV["GMAIL_PASSWORD"],
-    enable_starttls_auto: true
+    # enable_starttls_auto: true,
+    user_name: ENV["GMAIL_ACCOUNT"],
+    password: ENV["GMAIL_PASSWORD"]
   }
 
+  config.action_mailer.default_url_options = { host: 'https://still-plateau-93422.herokuapp.com' }
 end
